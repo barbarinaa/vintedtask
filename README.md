@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Image Loading App aka Imagegram
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple image loading application built with React and Typescript. Users can view photos, and favourite the ones they like(or unfavourite previously favourited photos).
 
-## Available Scripts
+![APP_PREVIEW](src/images/AppPreview.gif)
+![FAVOURITE_IMG](src/images/favouriteImg.gif)
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+To get started with the project, follow the instructions below:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Make sure you have the following installed on your machine:
 
-### `npm test`
+- npm (Node Package Manager)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. after cloning the project, run `npm install` to install dependencies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Pexels API requires API Key in order to access the data. Folloe these instructions to obtain the key: [CLICK ME](https://help.pexels.com/hc/en-us/articles/900004904026-How-do-I-get-an-API-key)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. In the root of the folder create a .env file with the following contents: REACT_APP_PEXELS_API_KEY="yourkeygoeshere".
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. run `npm start` to start the application.
 
-### `npm run eject`
+5. Open: http://localhost:3000
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Project Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The project has the following structure:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- src/: Contains the source code.
+  - api/: to fetch image data.
+  - components/: React components used in the application + tests.
+    - PhotoCard.tsx: Component to display photos.
+    - Tooltip.tsx: Component to display photo information and favourite button.
+  - hooks/: Custom hooks + tests.
+    - useFavouritedState.ts: to initialise and set state from the local storage.
+    - useFetchPhotos.ts: to fetch photos from api and initialise loading state.
+    - useInfiniteScroll.ts: to enable infinite scrolling behaviour.
+  - App.tsx: Main component, entry point to the app.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Testing
 
-## Learn More
+1. to run all tests run `npm test`. Please note: some of the tests will fail in this mode, due to the testing setup config issues(as I was time limited I couldn't look deeeper into it). However all tests are passing when ran directly from the test file(e.g with Jest Runner or any other similar extension)- you can see screenshots in src/images/ folder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Note:_ _The standard practice is to put test files into the **tests** folder, at this point I haven't used that structure because of the simplicity of the app_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I tried to cover all of the edge case scenarios, however I do believe tests can be improved by also adding accessibility features testing.
+_TODO for the future - update test config,test refactoring, increase test coverage in all files and cover more edge cases, update folder structure, accessibility testing._
+
+### Decisions made
+
+1. I implemented the design as closely as possible to the design in the instructions. There are potential accessibility issues due to not enough contrast between photo and tooltip text colour.
+2. Upon clicking "Favourite" button the button changes colour and text("Favourited") to indicate to user that the photo was favourited.
+3. App is responsive, the media queires added are for smaller screens(tablet and mobile).
