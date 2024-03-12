@@ -7,18 +7,22 @@
 }
 
 .photo-component-wrapper {
-  width: calc(33.33% - 20px); /* Adjust width for different screen sizes */
+  width: calc(33.33% - 20px);
   box-sizing: border-box;
 }
 
+/* add breakpoints for tablet screens */
 @media (max-width: 768px) {
   .photo-component-wrapper {
-    width: calc(50% - 20px); /* Adjust width for tablet screens */
+    width: calc(50% - 20px);
+    height: calc(50vh - 20px);
   }
 }
 
+/* add breakpoints for mobile screens */
 @media (max-width: 480px) {
   .photo-component-wrapper {
-    width: calc(100% - 20px); /* Adjust width for mobile screens */
+    width: calc(100% - 20px);
+    height: calc(100vh - 20px);
   }
 }

@@ -24,19 +24,3 @@ img {
   object-fit: cover;
   border-radius: 11px;
 }
-
-/* add breakpoints for tablet screens */
-@media (max-width: 768px) {
-  .photo-component-wrapper {
-    width: calc(50% - 20px);
-    height: calc(50vh - 20px);
-  }
-}
-
-/* add breakpoints for mobile screens */
-@media (max-width: 480px) {
-  .photo-component-wrapper {
-    width: calc(100% - 20px);
-    height: calc(100vh - 20px);
-  }
-}
